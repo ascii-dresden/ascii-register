@@ -4,7 +4,7 @@ import datetime
 # Script for counting money for ascii Dresden.
 # This is definitely no well written python. One of my first little projects.
 
-name = "Julius Felchow"
+name = "MyName"
 
 # Array that contains the values of bills and coins.
 staggering = [100, 50, 20, 10, 5, 2, 1, .5, .2, .1, .05, .02, .01]
@@ -45,7 +45,6 @@ def calculate_staggering():
 
     # Coins which are always put away
     for coin in staggering[10:]:
-        print(coin)
         proposed_amounts[coin] = amounts[coin]
 
     for coin, amount in amounts.items():
@@ -76,11 +75,12 @@ calculate_staggering()
 
 
 print("Sum: " + str(total))
-print("Rest in register: " + str(total - register_money)) # adjust later
+print("Rest in register: " + str(total - register_money))
 print("\nProposed staggering for the envelope:")
 for coin, amount in proposed_amounts.items():
     print("Amount {}: {}".format(coin, amount))
 
 now = datetime.datetime.now()
-print("\nInscription for envelope:\nName     " + name + "\nDate     " + now.strftime("%d.%m.%Y"))
+print("\nInscription for envelope:\nName     " + name)
+print("Date     " + now.strftime("%d.%m.%Y"))
 print("Money    " + str(round(total - 100, 2)))
