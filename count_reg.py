@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import datetime
 # Script for counting money for ascii Dresden.
 # This is definitely no well written python. One of my first little projects. 
