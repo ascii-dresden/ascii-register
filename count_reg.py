@@ -67,7 +67,9 @@ def improve_staggering():
 
 read_input(amounts)
 
-print("\nValues for table: " + str(amounts) + "\nCheck these again, to be sure you didn't make a typo.\n")
+print("\nValues for table:")
+print(*amounts.values(), sep=', ')
+print("Check these again, to be sure you didn't make a typo.\n")
 
 # Calculate coin amount value
 for coin in staggering:
