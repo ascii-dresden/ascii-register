@@ -1,9 +1,11 @@
 # ascii-register
-Little script that counts the register money and creates a proposed staggering for the envelope.
+Little python3 script that counts the register money and creates a proposed staggering for the envelope.
 
 ## Usage
 
 Just call the script with ``python count_reg.py`` and insert the amount of coins and bills when prompted.
+
+__!It's gonna crash with python 2. Make sure you use python 3!__
 
 The values for the table in the _Kassenbuch_ will be displayed (recheck against typos or miscounts).
 
