@@ -2,7 +2,7 @@
 
 import datetime
 # Script for counting money for ascii Dresden.
-# This is definitely no well written python. One of my first little projects.
+# This is fairly well written python. One of my first little projects.
 
 name = "MyName"
 
@@ -25,12 +25,12 @@ rest = 0
 register_money = 0
 
 
-def read_input(amounts) :
+def read_input(amounts : list):
     """Reads the input for the amount of bills and coins in the register."""
 
     for coin in staggering:
         try:
-            amounts[coin] = int(input('Amount {}: '.format(coin)))
+            amounts[coin] = int(input('Amount {}: '.format('{:6.2f}'.format(coin))))
         except ValueError:
             print("NaN")
 
@@ -41,6 +41,8 @@ def calculate_staggering():
 
     Definitely not fail proof and not intelligent yet.
     Adjust the staggering to keep in 5 and 10 Euro bills.
+
+    A little intelligent yet still dumb.
     """
 
     # Coins which are always put away
@@ -60,10 +62,14 @@ def get_overlap():
         proposed += proposed_amounts[coin] * coin
     return round(total - proposed - 100, 2)
 
+def improve_staggering():
+    """If there are no 5 euro bills left in the register, adjust the proposed_amounts."""
 
 read_input(amounts)
 
-print("\nValues for table: " + str(amounts) + "\nCheck these again, to be sure you didn't make a typo.\n")
+print("\nValues for table:")
+print(*amounts.values(), sep=', ')
+print("Check these again, to be sure you didn't make a typo.\n")
 
 # Calculate coin amount value
 for coin in staggering:
@@ -78,7 +84,8 @@ print("Sum: " + str(total))
 print("Rest in register: " + str(total - register_money))
 print("\nProposed staggering for the envelope:")
 for coin, amount in proposed_amounts.items():
-    print("Amount {}: {}".format(coin, amount))
+    print("Amount {}: {}".format("{:6.2f}".format(coin), amount))
+print("Make sure there are about 30 euros in bills in the register.")
 
 now = datetime.datetime.now()
 print("\nInscription for envelope:\nName     " + name)
